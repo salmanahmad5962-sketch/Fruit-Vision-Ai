@@ -208,50 +208,56 @@
         <div id="results" class="page">
             <section class="results-hero">
                 <div class="result-card">
-                    <div style="font-size: 1.2rem; color: #636e72; margin-bottom: 1rem;">AI Classification Result</div>
-                    <div class="fruit-name" id="resultFruitName">Apple</div>
-                    <div id="resultFruitSubtitle" style="font-size: 1.3rem; margin-bottom: 2rem;">Granny Smith variety
-                        detected</div>
-
-                    <img id="resultImage" src="./assets/images/hero-fruits.jpg" alt="Classified Fruit"
-                        class="result-image">
-
-                    <div class="confidence-bar">
-                        <div id="resultConfidenceFill" class="confidence-fill" style="width: 0;"></div>
+                    <div class="result-eyebrow">
+                        <h1>AI Classification Result</h1>
                     </div>
-                    <div id="resultConfidenceText" style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1.2rem;">
-                        0.0% Confidence</div>
 
-                    <div class="calorie-stats-card">
-                        <h4>Nutritional Information (per 100g)</h4>
-                        <table class="calorie-stats-table">
-                            <tbody>
-                                <tr>
-                                    <th>Calories</th>
-                                    <td id="nutrientCalories">0 kcal</td>
-                                </tr>
-                                <tr>
-                                    <th>Carbohydrates</th>
-                                    <td id="nutrientCarbs">0 g</td>
-                                </tr>
-                                <tr>
-                                    <th>Fat</th>
-                                    <td id="nutrientFat">0 g</td>
-                                </tr>
-                                <tr>
-                                    <th>Protein</th>
-                                    <td id="nutrientProtein">0 g</td>
-                                </tr>
-                                <tr>
-                                    <th>Fiber</th>
-                                    <td id="nutrientFiber">0 g</td>
-                                </tr>
-                                <tr>
-                                    <th>Sugar</th>
-                                    <td id="nutrientSugar">0 g</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="result-top">
+                        <div class="result-media">
+                            <img id="resultImage" src="./assets/images/hero-fruits.jpg" alt="Classified Fruit"
+                                class="result-image">
+                            <div class="fruit-name" id="resultFruitName">Apple</div>
+                            <div id="resultFruitSubtitle" class="result-subtitle">Granny Smith variety
+                                detected</div>
+
+                            <div class="confidence-bar">
+                                <div id="resultConfidenceFill" class="confidence-fill" style="width: 0;"></div>
+                            </div>
+                            <div id="resultConfidenceText" class="confidence-text">
+                                0.0% Confidence</div>
+                        </div>
+
+                        <div class="calorie-stats-card">
+                            <h4>Nutritional Information (per 100g)</h4>
+                            <table class="calorie-stats-table">
+                                <tbody>
+                                    <tr>
+                                        <th>Calories</th>
+                                        <td id="nutrientCalories">0 kcal</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Carbohydrates</th>
+                                        <td id="nutrientCarbs">0 g</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fat</th>
+                                        <td id="nutrientFat">0 g</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Protein</th>
+                                        <td id="nutrientProtein">0 g</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fiber</th>
+                                        <td id="nutrientFiber">0 g</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Sugar</th>
+                                        <td id="nutrientSugar">0 g</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <!-- Health Information Cards -->
@@ -274,7 +280,7 @@
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <div class="result-actions">
                         <button id="downloadReportBtn" class="cta-button"
                             style="background: linear-gradient(135deg, #00b894, #00a085);">
                             <i class="fas fa-download"></i> Download Report
@@ -435,9 +441,9 @@
                     <div
                         style="text-align: center; margin-top: 4rem; padding: 2rem; background: white; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.08);">
                         <h3 style="color: #2d3436; margin-bottom: 1rem;">Project Developer</h3>
-                        <p style="font-size: 1.2rem; color: #00b894; margin-bottom: 0.5rem;">Your Name</p>
+                        <p style="font-size: 1.2rem; color: #00b894; margin-bottom: 0.5rem;">Salman & Haseeb</p>
                         <p style="color: #636e72;">Final Year Computer Science Student</p>
-                        <p style="color: #636e72; margin-top: 1rem;">your.email@university.edu | +1 (555) 123-4567</p>
+                        <p style="color: #636e72; margin-top: 1rem;">fruitclassifier01@gmail.com | +(92) 312 1634432</p>
                     </div>
                 </div>
             </section>
@@ -446,18 +452,98 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <h3><i class="fas fa-apple-alt"></i> FruitAI Classification System</h3>
-            <p>Final Year Project | AI-Powered Smart Agriculture Solution</p>
-            <div style="margin-top: 2rem; font-size: 1.1rem;">
-                <a href="#" class="footer-link" data-target-page="upload" style="color: #fdcb6e; margin: 0 1.5rem;"><i
-                        class="fas fa-camera"></i> Demo</a>
-                <a href="#" class="footer-link" data-target-page="admin" style="color: #fdcb6e; margin: 0 1.5rem;"><i
-                        class="fas fa-user-shield"></i> Admin</a>
-                <a href="#" class="footer-link" data-target-page="contact" style="color: #fdcb6e; margin: 0 1.5rem;"><i
-                        class="fas fa-envelope"></i> Contact</a>
+
+            <div class="footer-grid">
+
+                <!-- About -->
+                <div class="footer-column">
+                    <h3>
+                        <i class="fas fa-apple-alt"></i>
+                        FruitAI
+                    </h3>
+
+                    <p>
+                        AI-powered fruit classification platform that identifies fruits,
+                        predicts confidence scores, and provides nutritional insights
+                        using Deep Learning technology.
+                    </p>
+
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+
+                    <ul>
+                        <li><a href="#" class="footer-link" data-target-page="home">Home</a></li>
+                        <li><a href="#" class="footer-link" data-target-page="overview">Overview</a></li>
+                        <li><a href="#" class="footer-link" data-target-page="upload">Classify</a></li>
+                        <li><a href="#" class="footer-link" data-target-page="results">Results</a></li>
+                        <li><a href="#" class="footer-link" data-target-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Features -->
+                <div class="footer-column">
+                    <h4>Features</h4>
+
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> AI Fruit Detection</li>
+                        <li><i class="fas fa-check-circle"></i> Deep Learning Model</li>
+                        <li><i class="fas fa-check-circle"></i> Nutrition Analysis</li>
+                        <li><i class="fas fa-check-circle"></i> Confidence Score</li>
+                        <li><i class="fas fa-check-circle"></i> PDF Reports</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-column">
+                    <h4>Contact</h4>
+
+                    <p>
+                        <i class="fas fa-user"></i>
+                        Salman Ahmad
+                    </p>
+
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        fruitclassifier01@gmail.com
+                    </p>
+
+                    <p>
+                        <i class="fas fa-phone"></i>
+                        +92 312 1634432
+                    </p>
+
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                         Bahawalpur, Pakistan
+                    </p>
+                </div>
+
             </div>
-            <p style="margin-top: 2rem; opacity: 0.8;">© 2024 FruitAI. University Final Year Project. All rights
-                reserved.</p>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 FruitAI Classification System. All Rights Reserved.
+                </p>
+
+                <p>
+                    Designed & Developed by
+                    <span>Salman Ahmad & Haseeb</span>
+                </p>
+
+            </div>
+
         </div>
     </footer>
 
