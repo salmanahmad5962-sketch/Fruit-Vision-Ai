@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FruitAI – Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --green: #16a34a;
+      --green-dark: #0f7a37;
+      --green-light: #22c55e;
+      --bg: #f4f6f5;
+      --text-dark: #1a2e22;
+      --text-mut: #6b7d72;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* ===== Outer card, split layout ===== */
+    .wrap {
+      width: 100%;
+      max-width: 1140px;
+      min-height: 660px;
+      background: #fff;
+      border-radius: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      box-shadow: 0 40px 90px rgba(16, 60, 30, .18);
+      animation: cardIn .7s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(.98)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1)
+      }
+    }
+
+    /* ===== LEFT: form ===== */
+    .left {
+      padding: 52px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid #e3e9e5;
+      border-radius: 30px;
+      padding: 8px 18px;
+      width: fit-content;
+      margin-bottom: 46px;
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: .95rem;
+    }
+
+    .brand .em {
+      font-size: 1.15rem
+    }
+
+    .heading h1 {
+      font-size: 2.1rem;
+      color: var(--text-dark);
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -.5px;
+    }
+
+    .heading p {
+      color: var(--text-mut);
+      font-size: .92rem;
+      margin-bottom: 34px;
+    }
+
+    .tabs {
+      display: flex;
+      background: #f0f3f1;
+      border-radius: 13px;
+      padding: 5px;
+      margin-bottom: 30px;
+      width: fit-content;
+    }
+
+    .tb {
+      padding: 10px 26px;
+      border: none;
+      border-radius: 9px;
+      background: transparent;
+      color: var(--text-mut);
+      font-family: 'Poppins', sans-serif;
+      font-size: .88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .25s;
+    }
+
+    .tb.on {
+      background: #fff;
+      color: var(--green-dark);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+    }
+
+    .sec {
+      display: none;
+      animation: fadeSlide .35s ease;
+    }
+
+    .sec.on {
+      display: block
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .fld {
+      margin-bottom: 17px;
+      position: relative
+    }
+
+    .fld label {
+      display: block;
+      color: var(--text-dark);
+      font-size: .8rem;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .fld input {
+      width: 100%;
+      padding: 13px 16px;
+      background: #f7f9f7;
+      border: 1.5px solid #e6ebe7;
+      border-radius: 12px;
+      color: var(--text-dark);
+      font-family: 'Poppins', sans-serif;
+      font-size: .9rem;
+      outline: none;
+      transition: border-color .2s, background .2s;
+    }
+
+    .fld input::placeholder {
+      color: #a4b0a8
+    }
+
+    .fld input:focus {
+      border-color: var(--green-light);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, .1);
+    }
+
+    .pw-wrap {
+      position: relative
+    }
+
+    .pw-toggle {
+      position: absolute;
+      right: 14px;
+      top: 38px;
+      cursor: pointer;
+      font-size: .95rem;
+      color: var(--text-mut);
+      user-select: none;
+    }
+
+    .extras {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .rem {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer
+    }
+
+    .rem input {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--green)
+    }
+
+    .rem span {
+      color: var(--text-mut);
+      font-size: .8rem
+    }
+
+    .frgt {
+      color: var(--green-dark);
+      font-size: .8rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .frgt:hover {
+      text-decoration: underline
+    }
+
+    .btn-s {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--green-light), var(--green-dark));
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 18px;
+      transition: transform .15s, box-shadow .15s, opacity .2s;
+      box-shadow: 0 10px 24px rgba(22, 163, 74, .28);
+    }
+
+    .btn-s:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(22, 163, 74, .35)
+    }
+
+    .btn-s:active {
+      transform: translateY(0)
+    }
+
+    .btn-s:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e6ebe7;
+    }
+
+    .divider span {
+      color: #a4b0a8;
+      font-size: .74rem;
+      font-weight: 500
+    }
+
+    .btn-g {
+      width: 100%;
+      padding: 12px;
+      border: 1.5px solid #e6ebe7;
+      border-radius: 12px;
+      background: #fff;
+      color: var(--text-dark);
+      font-family: 'Poppins', sans-serif;
+      font-size: .87rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background .2s, border-color .2s;
+    }
+
+    .btn-g:hover {
+      background: #f7f9f7;
+      border-color: #d3ddd6
+    }
+
+    .al {
+      padding: 11px 14px;
+      border-radius: 10px;
+      font-size: .8rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      text-align: center;
+      display: none;
+      animation: fadeSlide .3s ease;
+    }
+
+    .al.show {
+      display: block
+    }
+
+    .al.ok {
+      background: #eafbf1;
+      border: 1px solid #b8ecc9;
+      color: #0f7a37
+    }
+
+    .al.err {
+      background: #fdecec;
+      border: 1px solid #f7c3c3;
+      color: #c62828
+    }
+
+    .al.inf {
+      background: #eaf3fd;
+      border: 1px solid #bfdcf7;
+      color: #1c64c2
+    }
+
+    /* logged-in view */
+    .li-view {
+      text-align: center;
+      display: none
+    }
+
+    .av {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-light), var(--green-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 auto 16px;
+      box-shadow: 0 10px 24px rgba(22, 163, 74, .28);
+    }
+
+    .li-view h3 {
+      color: var(--text-dark);
+      font-size: 1.2rem;
+      margin-bottom: 5px
+    }
+
+    .li-view p {
+      color: var(--text-mut);
+      font-size: .85rem;
+      margin-bottom: 24px
+    }
+
+    .btn-home {
+      display: block;
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--green-light), var(--green-dark));
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      margin-bottom: 12px;
+    }
+
+    .btn-lo {
+      width: 100%;
+      padding: 12px;
+      border: 1.5px solid #f7c3c3;
+      border-radius: 12px;
+      background: #fdecec;
+      color: #c62828;
+      font-family: 'Poppins', sans-serif;
+      font-size: .88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .btn-lo:hover {
+      background: #fbd8d8
+    }
+
+    .terms {
+      color: #a4b0a8;
+      font-size: .72rem;
+      text-align: center;
+      margin-top: 22px;
+      line-height: 1.6;
+    }
+
+    .terms a {
+      color: var(--green-dark);
+      text-decoration: none;
+      font-weight: 500
+    }
+
+    .switch-line {
+      text-align: center;
+      color: var(--text-mut);
+      font-size: .82rem;
+      margin-top: 4px
+    }
+
+    .switch-line a {
+      color: var(--green-dark);
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer
+    }
+
+    /* ===== RIGHT: visual panel ===== */
+    .right {
+      position: relative;
+      background:
+        linear-gradient(160deg, rgba(6, 46, 20, .72) 0%, rgba(15, 122, 55, .55) 45%, rgba(22, 197, 94, .45) 100%),
+        url('https://images.unsplash.com/photo-1557844352-761f2565b576?fm=jpg&q=80&w=1600&auto=format&fit=crop') center / cover no-repeat;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: .35;
+    }
+
+    .blob1 {
+      width: 320px;
+      height: 320px;
+      background: #bbf7d0;
+      top: -80px;
+      right: -80px;
+      animation: float1 9s ease-in-out infinite
+    }
+
+    .blob2 {
+      width: 260px;
+      height: 260px;
+      background: #052e14;
+      bottom: -60px;
+      left: -60px;
+      animation: float2 11s ease-in-out infinite
+    }
+
+    @keyframes float1 {
+
+      0%,
+      100% {
+        transform: translate(0, 0)
+      }
+
+      50% {
+        transform: translate(-20px, 30px)
+      }
+    }
+
+    @keyframes float2 {
+
+      0%,
+      100% {
+        transform: translate(0, 0)
+      }
+
+      50% {
+        transform: translate(25px, -20px)
+      }
+    }
+
+    .fruit-orbit {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .fruit-orbit span {
+      position: absolute;
+      font-size: 2.1rem;
+      opacity: .16;
+      animation: drift 13s linear infinite;
+    }
+
+    .fruit-orbit span:nth-child(1) {
+      left: 8%;
+      animation-delay: 0s;
+      animation-duration: 14s
+    }
+
+    .fruit-orbit span:nth-child(2) {
+      left: 24%;
+      animation-delay: 2.2s;
+      animation-duration: 11s
+    }
+
+    .fruit-orbit span:nth-child(3) {
+      left: 46%;
+      animation-delay: 4.4s;
+      animation-duration: 16s
+    }
+
+    .fruit-orbit span:nth-child(4) {
+      left: 64%;
+      animation-delay: 1.1s;
+      animation-duration: 12s
+    }
+
+    .fruit-orbit span:nth-child(5) {
+      left: 80%;
+      animation-delay: 3.3s;
+      animation-duration: 15s
+    }
+
+    .fruit-orbit span:nth-child(6) {
+      left: 92%;
+      animation-delay: 5.5s;
+      animation-duration: 13s
+    }
+
+    @keyframes drift {
+      from {
+        transform: translateY(115%) rotate(0deg)
+      }
+
+      to {
+        transform: translateY(-15%) rotate(360deg)
+      }
+    }
+
+    .center-stage {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px;
+      color: #fff;
+    }
+
+    .scan-ring {
+      width: 190px;
+      height: 190px;
+      margin: 0 auto 30px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      border: 1.5px solid rgba(255, 255, 255, .35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, .25)
+      }
+
+      50% {
+        box-shadow: 0 0 0 18px rgba(255, 255, 255, 0)
+      }
+    }
+
+    .scan-ring .em {
+      font-size: 4.2rem;
+      animation: bob 4s ease-in-out infinite
+    }
+
+    @keyframes bob {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg)
+      }
+
+      50% {
+        transform: translateY(-8px) rotate(6deg)
+      }
+    }
+
+    .scan-line {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #bbf7d0, transparent);
+      top: 50%;
+      animation: scan 2.4s ease-in-out infinite;
+    }
+
+    @keyframes scan {
+      0% {
+        top: 12%
+      }
+
+      50% {
+        top: 88%
+      }
+
+      100% {
+        top: 12%
+      }
+    }
+
+    .center-stage h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .center-stage p {
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .8);
+      max-width: 320px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* floating info cards */
+    .fcard {
+      position: absolute;
+      background: rgba(255, 255, 255, .22);
+      border: 1px solid rgba(255, 255, 255, .35);
+      color: #fff;
+      border-radius: 14px;
+      padding: 12px 16px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, .18);
+      font-size: .78rem;
+      z-index: 3;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .fcard .t {
+      font-weight: 700;
+      font-size: .82rem;
+      margin-bottom: 2px;
+      color: #fff
+    }
+
+    .fcard .s {
+      color: rgba(255, 255, 255, .8);
+      font-size: .72rem
+    }
+
+    .fcard.c1 {
+      top: 46px;
+      left: 34px;
+      animation: floaty 6s ease-in-out infinite
+    }
+
+    .fcard.c2 {
+      bottom: 60px;
+      right: 30px;
+      animation: floaty 7s ease-in-out infinite 1s
+    }
+
+    .fcard.c3 {
+      bottom: 128px;
+      left: 20px;
+      animation: floaty 8s ease-in-out infinite .5s;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    @keyframes floaty {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+    }
+
+    .dot-live {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: inline-block;
+      margin-right: 6px;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, .5);
+      animation: dotPulse 1.8s infinite;
+    }
+
+    @keyframes dotPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, .5)
+      }
+
+      70% {
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0)
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0)
+      }
+    }
+
+    @media (max-width: 900px) {
+      .wrap {
+        grid-template-columns: 1fr;
+        max-width: 460px
+      }
+
+      .right {
+        display: none
+      }
+
+      .left {
+        padding: 44px 32px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <!-- ===== LEFT PANEL ===== -->
+    <div class="left">
+      <div class="brand"><span class="em">🍎</span> FruitAI</div>
+
+      <!-- Logged-in view -->
+      <div class="li-view" id="liView">
+        <div class="av" id="avLetter">U</div>
+        <h3 id="liName">Welcome back!</h3>
+        <p id="liEmail">user@example.com</p>
+        <a href="/" class="btn-home">🍎 Go to FruitAI App</a>
+        <button class="btn-lo" id="logoutBtn">Sign Out</button>
+      </div>
+
+      <!-- Auth forms -->
+      <div id="authArea">
+        <div class="heading">
+          <h1 id="mainHeading">Welcome back</h1>
+          <p id="subHeading">Log in to access your fruit &amp; vegetable classifier</p>
+        </div>
+
+        <div class="tabs">
+          <button class="tb on" data-t="login">Login</button>
+          <button class="tb" data-t="signup">Sign Up</button>
+        </div>
+
+        <div class="al" id="alert"></div>
+
+        <!-- LOGIN -->
+        <div class="sec on" id="loginSec">
+          <div class="fld">
+            <label>Email Address</label>
+            <input type="email" id="lEmail" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div class="fld pw-wrap">
+            <label>Password</label>
+            <input type="password" id="lPass" placeholder="Your password" autocomplete="current-password">
+            <span class="pw-toggle" data-target="lPass">👁</span>
+          </div>
+          <div class="extras">
+            <label class="rem"><input type="checkbox" id="remMe"><span>Remember me</span></label>
+            <a href="#" class="frgt" id="frgt">Forgot password?</a>
+          </div>
+          <button class="btn-s" id="loginBtn">Login</button>
+          <p class="switch-line">Don't have an account? <a data-t="signup">Sign up</a></p>
+        </div>
+
+      <!-- SIGNUP -->
+        <div class="sec" id="signupSec">
+          <div class="fld">
+            <label>Full Name</label>
+            <input type="text" id="sName" placeholder="Your full name" autocomplete="name">
+          </div>
+          <div class="fld">
+            <label>Email Address</label>
+            <input type="email" id="sEmail" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div class="fld pw-wrap">
+            <label>Password</label>
+            <input type="password" id="sPass" placeholder="At least 6 characters" autocomplete="new-password">
+            <span class="pw-toggle" data-target="sPass">👁</span>
+          </div>
+          <div class="fld pw-wrap" style="margin-bottom:20px">
+            <label>Confirm Password</label>
+            <input type="password" id="sConf" placeholder="Repeat your password">
+            <span class="pw-toggle" data-target="sConf">👁</span>
+          </div>
+          <button class="btn-s" id="signupBtn">Create Account</button>
+          <p class="switch-line">Already have an account? <a data-t="login">Login</a></p>
+        </div>
+
+        <p class="terms">By continuing you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a></p>
+      </div>
+    </div>
+
+    <!-- ===== RIGHT PANEL ===== -->
+    <div class="right">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+      <div class="fruit-orbit">
+        <span>🍎</span><span>🍌</span><span>🍇</span><span>🥕</span><span>🍑</span><span>🍓</span>
+      </div>
+
+      <div class="center-stage">
+        <div class="scan-ring">
+          <div class="scan-line"></div>
+          <span class="em">🍎</span>
+        </div>
+        <h2>Smarter Produce Detection</h2>
+        <p>Our 3-model AI ensemble instantly identifies fruits &amp; vegetables and gives you real nutrition data.</p>
+      </div>
+
+      <div class="fcard c1">
+        <div class="t">98.4% Accuracy</div>
+        <div class="s">Verified on test dataset</div>
+      </div>
+      <div class="fcard c2">
+        <div class="t"><span class="dot-live"></span>3-Model Ensemble</div>
+        <div class="s">HuggingFace vision models</div>
+      </div>
+      <div class="fcard c3">
+        <span style="font-size:1.4rem">🥦</span>
+        <div>
+          <div class="t">Nutrition Facts</div>
+          <div class="s">Instant, per-item breakdown</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="./assets/js/cursor.js"></script>
+  <script>
+    const $ = id => document.getElementById(id);
+
+    // ── Alert helper ──────────────────────────────
+    function msg(text, type) {
+      const el = $('alert');
+      el.textContent = (type === 'ok' ? '✅ ' : type === 'inf' ? 'ℹ️ ' : '❌ ') + text;
+      el.className = 'al show ' + type;
+      clearTimeout(el._t);
+      if (type !== 'err') el._t = setTimeout(() => el.className = 'al', 5000);
+    }
+
+    // ── Tab switching (top tabs + inline switch links) ─
+    function switchTab(target) {
+      document.querySelectorAll('.tb').forEach(x => x.classList.remove('on'));
+      document.querySelectorAll('.sec').forEach(x => x.classList.remove('on'));
+      document.querySelector('.tb[data-t="' + target + '"]').classList.add('on');
+      $(target + 'Sec').classList.add('on');
+      $('alert').className = 'al';
+      if (target === 'login') {
+        $('mainHeading').textContent = 'Welcome back';
+        $('subHeading').textContent = 'Log in to access your fruit & vegetable classifier';
+      } else {
+        $('mainHeading').textContent = 'Create an account';
+        $('subHeading').textContent = 'Sign up and start classifying instantly';
+      }
+    }
+    document.querySelectorAll('.tb, .switch-line a').forEach(b =>
+      b.addEventListener('click', () => switchTab(b.dataset.t))
+    );
+
+    // ── Password show/hide ─────────────────────────
+    document.querySelectorAll('.pw-toggle').forEach(t => t.addEventListener('click', () => {
+      const inp = $(t.dataset.target);
+      inp.type = inp.type === 'password' ? 'text' : 'password';
+      t.textContent = inp.type === 'password' ? '👁' : '🙈';
+    }));
+
+    // ── Show logged-in state ──────────────────────
+    function showLoggedIn(username, email) {
+      $('authArea').style.display = 'none';
+      $('liView').style.display = 'block';
+      $('liName').textContent = 'Welcome, ' + username + '!';
+      $('liEmail').textContent = email;
+      $('avLetter').textContent = username.charAt(0).toUpperCase();
+    }
+
+    // ── Check session on page load ────────────────
+    async function checkSession() {
+      const token = localStorage.getItem('fruitai_token');
+      if (!token) return;
+      try {
+        const res = await fetch('/api/me', { headers: { 'X-User-Token': token } });
+        const data = await res.json();
+        if (data.logged_in) {
+          showLoggedIn(data.username, data.email);
+        } else {
+          localStorage.removeItem('fruitai_token');
+          localStorage.removeItem('fruitai_username');
+          localStorage.removeItem('fruitai_email');
+        }
+      } catch (e) { console.warn('Session check failed', e); }
+    }
+
+    // ── LOGIN ─────────────────────────────────────
+    $('loginBtn').addEventListener('click', async () => {
+      const email = $('lEmail').value.trim();
+      const pass = $('lPass').value;
+      const rem = $('remMe').checked;
+      if (!email) return msg('Please enter your email.', 'err');
+      if (!pass) return msg('Please enter your password.', 'err');
+
+      const btn = $('loginBtn');
+      btn.disabled = true; btn.textContent = 'Logging in...';
+
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password: pass, remember_me: rem })
+        });
+        const data = await res.json();
+        if (data.ok) {
+          localStorage.setItem('fruitai_token', data.token);
+          localStorage.setItem('fruitai_username', data.username);
+          localStorage.setItem('fruitai_email', data.email);
+          msg(data.message, 'ok');
+          setTimeout(() => showLoggedIn(data.username, data.email), 1200);
+        } else {
+          msg(data.error || 'Login failed.', 'err');
+        }
+      } catch (e) { msg('Cannot reach server. Is Flask running? (python app.py)', 'err'); }
+
+      btn.disabled = false; btn.textContent = 'Login';
+    });
+
+    ['lEmail', 'lPass'].forEach(id => {
+      $(id).addEventListener('keydown', e => { if (e.key === 'Enter') $('loginBtn').click(); });
+    });
+
+    // ── SIGNUP ────────────────────────────────────
+    $('signupBtn').addEventListener('click', async () => {
+      const name = $('sName').value.trim();
+      const email = $('sEmail').value.trim();
+      const pass = $('sPass').value;
+      const conf = $('sConf').value;
+
+      if (!name || name.length < 2) return msg('Name must be at least 2 characters.', 'err');
+      if (!email || !email.includes('@')) return msg('Enter a valid email address.', 'err');
+      if (!pass || pass.length < 6) return msg('Password must be at least 6 characters.', 'err');
+      if (pass !== conf) return msg('Passwords do not match.', 'err');
+
+      const btn = $('signupBtn');
+      btn.disabled = true; btn.textContent = 'Creating account...';
+
+      try {
+        const res = await fetch('/api/signup', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: name, email, password: pass })
+        });
+        const data = await res.json();
+        if (data.ok) {
+          msg(data.message + ' Please log in.', 'ok');
+          ['sName', 'sEmail', 'sPass', 'sConf'].forEach(id => $(id).value = '');
+          setTimeout(() => switchTab('login'), 2000);
+        } else {
+          msg(data.error || 'Signup failed.', 'err');
+        }
+      } catch (e) { msg('Cannot reach server. Is Flask running? (python app.py)', 'err'); }
+
+      btn.disabled = false; btn.textContent = 'Create Account';
+    });
+
+    // ── LOGOUT ────────────────────────────────────
+    $('logoutBtn').addEventListener('click', async () => {
+      try {
+        await fetch('/api/logout', {
+          method: 'POST',
+          headers: { 'X-User-Token': localStorage.getItem('fruitai_token') }
+        });
+      } catch (e) { }
+      ['fruitai_token', 'fruitai_username', 'fruitai_email'].forEach(k => localStorage.removeItem(k));
+      $('authArea').style.display = '';
+      $('liView').style.display = 'none';
+      msg('Logged out successfully.', 'inf');
+    });
+
+    // ── FORGOT PASSWORD ───────────────────────────
+    $('frgt').addEventListener('click', e => {
+      e.preventDefault();
+      const email = $('lEmail').value.trim();
+      msg(email ? 'Reset link sent to ' + email + ' (coming soon)' : 'Enter your email first.', 'inf');
+    });
+
+    // ── Init ──────────────────────────────────────
+    checkSession();
+  </script>
+</body>
+
+</html>

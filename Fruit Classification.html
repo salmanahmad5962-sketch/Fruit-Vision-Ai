@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FruitAI - AI-Based Fruit Classification System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+    <div id="pageLoader" class="page-loader" aria-live="polite">
+        <div class="loader-card">
+            <img src="./assets/images/fruit-watermelon.png" alt="Fruit loader icon" class="loader-fruit">
+            <p>Preparing FruitAI experience...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container container">
+            <div class="logo">
+                <i class="fas fa-apple-alt"></i> FruitAI
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+                <li><a href="#" data-page="about" class="nav-link">Overview</a></li>
+                <li><a href="#" data-page="upload" class="nav-link">Classify</a></li>
+                <li><a href="#" data-page="results" class="nav-link">Results</a></li>
+                <li><a href="#" data-page="technology" class="nav-link">Tech</a></li>
+                <li><a href="#" data-page="admin" class="nav-link">Admin</a></li>
+                <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
+                <li><a href="#" data-page="auth" class="nav-link">Login / Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="container">
+                    <h1>AI-Powered Fruit Classification</h1>
+                    <p class="hero-subtitle">Instantly identify any fruit from images using cutting-edge Deep Learning.
+                        Revolutionizing smart agriculture and food technology.</p>
+
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="hero-fruit-ribbon" aria-hidden="true">
+                            <img src="./assets/images/fruit-apple.png" alt="" class="hero-fruit-icon">
+                            <img src="./assets/images/fruit-banana.png" alt="" class="hero-fruit-icon">
+                            <img src="./assets/images/fruit-grapes.png" alt="" class="hero-fruit-icon">
+                            <img src="./assets/images/fruit-peach.png" alt="" class="hero-fruit-icon">
+                            <img src="./assets/images/fruit-watermelon.png" alt="" class="hero-fruit-icon">
+                        </div>
+
+                        <button style="width: max-content;" class="cta-button" id="goToUploadBtn">
+                            <i class="fas fa-camera"></i> Classify Fruit Now
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fruit-showcase">
+                <div class="container">
+                    <h2 class="section-title">Featured Fruits</h2>
+                    <p class="section-subtitle">A quick look at some of the most common fruits in our dataset.</p>
+                    <div class="fruit-showcase-grid">
+                        <div class="fruit-chip">
+                            <img src="./assets/images/fruit-apple.png" alt="Apple" class="fruit-chip-icon">
+                            <span>Apple</span>
+                        </div>
+                        <div class="fruit-chip">
+                            <img src="./assets/images/fruit-banana.png" alt="Banana" class="fruit-chip-icon">
+                            <span>Banana</span>
+                        </div>
+                        <div class="fruit-chip">
+                            <img src="./assets/images/fruit-grapes.png" alt="Grapes" class="fruit-chip-icon">
+                            <span>Grapes</span>
+                        </div>
+                        <div class="fruit-chip">
+                            <img src="./assets/images/fruit-peach.png" alt="Peach" class="fruit-chip-icon">
+                            <span>Peach</span>
+                        </div>
+                        <div class="fruit-chip">
+                            <img src="./assets/images/fruit-watermelon.png" alt="Watermelon" class="fruit-chip-icon">
+                            <span>Watermelon</span>
+                        </div>
+                    </div>
+                    <div class="fruit-showcase-banner">
+                        <img src="./assets/images/hero-fruits.jpg" alt="Assorted fruits on a table"
+                            class="fruit-showcase-image">
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <h2 class="section-title">Why FruitAI?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                            <h3>98.7% Accuracy</h3>
+                            <p>Deep Learning CNN trained on 50,000+ fruit images for unmatched classification precision.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                            <h3>Lightning Fast</h3>
+                            <p>Classify fruits in under 2 seconds with real-time processing capabilities.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+                            <h3>Smart Agriculture</h3>
+                            <p>Automate fruit sorting, quality control, and inventory management for farms and markets.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <h3>Mobile Ready</h3>
+                            <p>Works perfectly on smartphones, tablets, and desktops for field use.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                            <h3>Confidence Scores</h3>
+                            <p>Get detailed probability scores for reliable decision making.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <section class="about-section">
+                <div class="container">
+                    <div class="about-content">
+                        <div>
+                            <h2 class="section-title">The Problem We Solve</h2>
+                            <p style="font-size: 1.2rem; color: #636e72; line-height: 1.8; margin-bottom: 2rem;">
+                                Manual fruit identification and sorting is time-consuming, error-prone, and inefficient.
+                                Farmers and food processors lose millions annually due to inaccurate classification and
+                                quality assessment.
+                            </p>
+                            <div class="about-stats-grid"
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                                <div class="about-stat-card"
+                                    style="text-align: center; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                                    <div style="font-size: 2.5rem; color: #e17055; margin-bottom: 0.5rem;">📦</div>
+                                    <h4>80% Manual Labor</h4>
+                                </div>
+                                <div class="about-stat-card"
+                                    style="text-align: center; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                                    <div style="font-size: 2.5rem; color: #fdcb6e; margin-bottom: 0.5rem;">❌</div>
+                                    <h4>15% Error Rate</h4>
+                                </div>
+                                <div class="about-stat-card"
+                                    style="text-align: center; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                                    <div style="font-size: 2.5rem; color: #00b894; margin-bottom: 0.5rem;">⏱️</div>
+                                    <h4>Hours of Work</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div class="about-media-frame">
+                                <img src="./assets/images/about-fruit-market.jpg" alt="Fresh fruit market"
+                                    class="about-media-image">
+                                <div class="about-media-icons" aria-hidden="true">
+                                    <img src="./assets/images/fruit-banana.png" alt="" class="about-media-icon">
+                                    <img src="./assets/images/fruit-peach.png" alt="" class="about-media-icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Upload Page -->
+        <div id="upload" class="page">
+            <section class="upload-hero">
+                <div class="upload-container">
+                    <h1
+                        style="font-size: 3.5rem; margin-bottom: 1rem; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+                        Upload Fruit Image</h1>
+                    <p style="font-size: 1.3rem; color: rgba(255,255,255,0.9); margin-bottom: 3rem;">Take a photo or
+                        upload an image of any fruit for instant AI classification</p>
+
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"
+                            style="font-size: 5rem; color: #00b894; margin-bottom: 2rem;"></i>
+                        <h3 style="color: #2d3436; margin-bottom: 1rem;">Drop your fruit image here</h3>
+                        <p style="color: #636e72;">Click to browse or drag & drop (JPG, PNG up to 10MB)</p>
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                    </div>
+
+                    <img class="image-preview" id="imagePreview" alt="Fruit Preview">
+                    <button style="margin-top: 19px;" class="classify-btn" id="classifyBtn" disabled>Classify Fruit <i
+                            class="fas fa-arrow-right"></i></button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Results Page -->
+        <div id="results" class="page">
+            <section class="results-hero">
+                <div class="result-card">
+                    <div style="font-size: 1.2rem; color: #636e72; margin-bottom: 1rem;">AI Classification Result</div>
+                    <div class="fruit-name" id="resultFruitName">Apple</div>
+                    <div id="resultFruitSubtitle" style="font-size: 1.3rem; margin-bottom: 2rem;">Granny Smith variety
+                        detected</div>
+
+                    <img id="resultImage" src="./assets/images/hero-fruits.jpg" alt="Classified Fruit"
+                        class="result-image">
+
+                    <div class="confidence-bar">
+                        <div id="resultConfidenceFill" class="confidence-fill" style="width: 0;"></div>
+                    </div>
+                    <div id="resultConfidenceText" style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1.2rem;">
+                        0.0% Confidence</div>
+
+                    <div class="calorie-stats-card">
+                        <h4>Nutritional Information (per 100g)</h4>
+                        <table class="calorie-stats-table">
+                            <tbody>
+                                <tr>
+                                    <th>Calories</th>
+                                    <td id="nutrientCalories">0 kcal</td>
+                                </tr>
+                                <tr>
+                                    <th>Carbohydrates</th>
+                                    <td id="nutrientCarbs">0 g</td>
+                                </tr>
+                                <tr>
+                                    <th>Fat</th>
+                                    <td id="nutrientFat">0 g</td>
+                                </tr>
+                                <tr>
+                                    <th>Protein</th>
+                                    <td id="nutrientProtein">0 g</td>
+                                </tr>
+                                <tr>
+                                    <th>Fiber</th>
+                                    <td id="nutrientFiber">0 g</td>
+                                </tr>
+                                <tr>
+                                    <th>Sugar</th>
+                                    <td id="nutrientSugar">0 g</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Health Information Cards -->
+                    <div class="health-info-grid" id="healthInfoGrid">
+                        <div class="health-card health-card-benefits">
+                            <h4><i class="fas fa-heart-pulse"></i> Health Benefits</h4>
+                            <ul id="healthBenefitsList" class="health-card-list"></ul>
+                        </div>
+                        <div class="health-card health-card-helpful">
+                            <h4><i class="fas fa-notes-medical"></i> Helpful For</h4>
+                            <ul id="helpfulForList" class="health-card-list"></ul>
+                        </div>
+                        <div class="health-card health-card-vitamins">
+                            <h4><i class="fas fa-capsules"></i> Vitamins & Nutrients</h4>
+                            <ul id="vitaminsList" class="health-card-list vitamins-list"></ul>
+                        </div>
+                        <div class="health-card health-card-warnings">
+                            <h4><i class="fas fa-triangle-exclamation"></i> Warnings & Precautions</h4>
+                            <ul id="warningsList" class="health-card-list"></ul>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                        <button id="downloadReportBtn" class="cta-button"
+                            style="background: linear-gradient(135deg, #00b894, #00a085);">
+                            <i class="fas fa-download"></i> Download Report
+                        </button>
+                        <button id="classifyAnotherBtn" class="cta-button secondary">
+                            <i class="fas fa-redo"></i> Classify Another
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Technology Page -->
+        <div id="technology" class="page">
+            <section class="hero"
+                style="padding: 160px 0 100px; background: linear-gradient(135deg, #a8e6cf 0%, #ffd93d 100%);">
+                <div class="container">
+                    <h1 style="text-align: center; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.3);">Technology
+                        Stack</h1>
+                    <p
+                        style="text-align: center; font-size: 1.4rem; color: rgba(255,255,255,0.95); max-width: 900px; margin: 0 auto 5rem;">
+                        Built with state-of-the-art AI technologies for production-ready performance
+                    </p>
+
+                    <div class="tech-visual-strip">
+                        <img src="./assets/images/tech-fruit-lab.jpg" alt="Fruit technology setup"
+                            class="tech-visual-image">
+                        <div class="tech-visual-icons" aria-hidden="true">
+                            <img src="./assets/images/fruit-apple.png" alt="" class="tech-visual-icon">
+                            <img src="./assets/images/fruit-grapes.png" alt="" class="tech-visual-icon">
+                            <img src="./assets/images/fruit-watermelon.png" alt="" class="tech-visual-icon">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-icon">🤖</div>
+                            <h3>Deep Learning CNN</h3>
+                            <p>Convolutional Neural Networks trained on 50K+ images</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">🐍</div>
+                            <h3>Python 3.11</h3>
+                            <p>Core programming language with scientific libraries</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">🧠</div>
+                            <h3>TensorFlow 2.13</h3>
+                            <p>Industry-leading deep learning framework</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">👁️</div>
+                            <h3>OpenCV 4.8</h3>
+                            <p>Advanced computer vision processing</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">⚡</div>
+                            <h3>Flask API</h3>
+                            <p>Fast and lightweight web backend</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-icon">🎨</div>
+                            <h3>Modern Web</h3>
+                            <p>HTML5 • CSS3 • Vanilla JavaScript</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Admin Page -->
+        <div id="admin" class="page">
+            <section class="contact-section">
+                <div class="container">
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <h1
+                            style="font-size: 3.2rem; background: linear-gradient(135deg, #00b894, #fdcb6e); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                            Admin Console</h1>
+                        <p style="font-size: 1.2rem; color: #636e72;">Manage fruit catalog and active model with
+                            authorized access.</p>
+                    </div>
+
+                    <div class="admin-grid">
+                        <div class="admin-card">
+                            <h3>Admin Login</h3>
+                            <form id="adminLoginForm">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input id="adminEmailInput" type="email" placeholder="admin@gmail.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input id="adminPasswordInput" type="password" placeholder="admin123" required>
+                                </div>
+                                <button type="submit" class="cta-button" style="width: 100%; margin-bottom: 1rem;">
+                                    <i class="fas fa-sign-in-alt"></i> Login
+                                </button>
+                            </form>
+                            <div id="adminMessage" class="message hidden"></div>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>Checked Images</h3>
+                            <p style="color: #636e72; margin-top: 0;">Images classified by AI are loaded from SQLite
+                                after login.</p>
+                            <div id="checkedImagesGrid" class="checked-images-grid">
+                                <div class="admin-summary">Login to load checked images.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <section class="contact-section">
+                <div class="container">
+                    <div style="text-align: center; margin-bottom: 4rem;">
+                        <h1
+                            style="font-size: 3.5rem; background: linear-gradient(135deg, #00b894, #fdcb6e); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                            Get In Touch</h1>
+                        <p style="font-size: 1.3rem; color: #636e72;">Feedback, questions, or collaboration
+                            opportunities</p>
+
+                        <div class="contact-visual-strip" aria-hidden="true">
+                            <img src="./assets/images/fruit-peach.png" alt="" class="contact-visual-icon">
+                            <img src="./assets/images/fruit-banana.png" alt="" class="contact-visual-icon">
+                            <img src="./assets/images/fruit-apple.png" alt="" class="contact-visual-icon">
+                        </div>
+                    </div>
+
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name</label>
+                            <input name="fullName" type="text" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email Address</label>
+                            <input name="email" type="email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-message"></i> Message</label>
+                            <textarea name="message" placeholder="Tell us about your project needs..." rows="6"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%; font-size: 1.2rem;">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+
+                        <div id="contactMessage" class="message hidden" style="margin-top: 1rem;"></div>
+                    </form>
+
+                    <div
+                        style="text-align: center; margin-top: 4rem; padding: 2rem; background: white; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.08);">
+                        <h3 style="color: #2d3436; margin-bottom: 1rem;">Project Developer</h3>
+                        <p style="font-size: 1.2rem; color: #00b894; margin-bottom: 0.5rem;">Your Name</p>
+                        <p style="color: #636e72;">Final Year Computer Science Student</p>
+                        <p style="color: #636e72; margin-top: 1rem;">your.email@university.edu | +1 (555) 123-4567</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h3><i class="fas fa-apple-alt"></i> FruitAI Classification System</h3>
+            <p>Final Year Project | AI-Powered Smart Agriculture Solution</p>
+            <div style="margin-top: 2rem; font-size: 1.1rem;">
+                <a href="#" class="footer-link" data-target-page="upload" style="color: #fdcb6e; margin: 0 1.5rem;"><i
+                        class="fas fa-camera"></i> Demo</a>
+                <a href="#" class="footer-link" data-target-page="admin" style="color: #fdcb6e; margin: 0 1.5rem;"><i
+                        class="fas fa-user-shield"></i> Admin</a>
+                <a href="#" class="footer-link" data-target-page="contact" style="color: #fdcb6e; margin: 0 1.5rem;"><i
+                        class="fas fa-envelope"></i> Contact</a>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.8;">© 2024 FruitAI. University Final Year Project. All rights
+                reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./assets/js/cursor.js"></script>
+    <script type="module" src="./assets/js/app.js"></script>
+</body>
+
+</html>
